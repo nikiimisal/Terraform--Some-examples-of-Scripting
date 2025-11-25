@@ -195,16 +195,20 @@ Helps fix wrong resource names or paths
 Useful during refactoring of Terraform code
 
 ```
-terraform state mv <aws_instance.instance-name> <aws_instance.new-resource-instance-name>
+terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resource-instance-name>
 ```
 
 
 <h4>Terraform State RM</h4>
 
-`terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure
+`terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure.
+Just like we use `terraform import` to bring an external resource (e.g., an EC2 instance) into Terraform, 
+we can use `terraform state rm` to remove a resource from Terraform’s state without deleting it from AWS.
+
+>if you want to manage the resource manually (also you need to remove block in `main.tf` file manually).
 
 ```
-terraform state rm
+terraform state rm <aws_instance.terraform-logical-name-of-ec2>
 ```
 
 
