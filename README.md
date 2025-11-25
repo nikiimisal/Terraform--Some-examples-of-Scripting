@@ -61,6 +61,28 @@ I’m using `hardcoding` here only for demonstration; prefer `dynamic assignment
 
 _ _ _
 
+<h2>Life Cycle rule (Block) </h2>
+
+Lifecycle rules control how Terraform creates, updates, or deletes a resource.
+Lifecycle helps you protect, recreate, or manage a resource’s behavior during Terraform operations.
+
+Example uses:
+
+prevent_destroy → stop a resource from being accidentally deleted
+create_before_destroy → create a new one first, then delete the old one
+ignore_changes → ignore specific attribute changes
+
+```
+lifecycle {
+  prevent_destroy      = true
+  create_before_destroy = true
+  ignore_changes        = [
+    tags,
+  ]
+}
+```
+
+
 <h1>Statefile</h1>
 
 >A Terraform state file is a file that stores the current status of all infrastructure created or managed by Terraform.
@@ -126,3 +148,72 @@ Short & Simple Definition:<br>
   Above, we discussed how the backend block is used. Here, I’m only explaining what a backend block is.
 
   
+<h2>Some command's</h2>
+>Terraform state commands
+
+The points we covered earlier were related to the `state file`, so you can use those state-related commands in this example. Or I can demonstrate here how these commands work.
+
+<h4>Terraform State Pull</h4>
+
+The `terraform state` command is used to view, inspect, modify, or manage the Terraform state file without changing real infrastructure.
+
+```
+terraform state pull
+```
+
+
+<h4>Terraform State List</h4>
+
+It’s hard to check how many resources were created after running `Terraform state pull` command, so we use `terraform state list` to easily see all resources.
+This command shows all the resources that are currently stored in the Terraform state file.
+
+```
+terraform state list
+```
+
+
+<h4>Terraform State Show</h4>
+
+If I want detailed information about a particular resource, I can use the `terraform state show` command.
+The `terraform state show` command is used to display detailed information about a specific resource stored in the Terraform state file.
+
+```
+terraform state show <resource_address(Name)>
+```
+
+
+
+
+<h4>Terraform State MV</h4>
+
+The `terraform state` mv command is used to move or rename a resource inside the Terraform state file without recreating it.
+
+Renames resources without recreating them
+Prevents downtime
+Keeps the state file clean and organized
+Helps fix wrong resource names or paths
+Useful during refactoring of Terraform code
+
+```
+terraform state mv <aws_instance.instance-name> <aws_instance.new-resource-instance-name>
+```
+
+
+<h4>Terraform State RM</h4>
+
+`terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure
+
+```
+terraform state rm
+```
+
+
+
+
+
+
+
+
+
+
+
