@@ -63,14 +63,14 @@ _ _ _
 
 <h2>Life Cycle rule (Block) </h2>
 
-Lifecycle rules control how Terraform creates, updates, or deletes a resource.
+Lifecycle rules control how Terraform creates, updates, or deletes a resource.<br>
 Lifecycle helps you protect, recreate, or manage a resource’s behavior during Terraform operations.
 
 Example uses:
 
-prevent_destroy → stop a resource from being accidentally deleted
-create_before_destroy → create a new one first, then delete the old one
-ignore_changes → ignore specific attribute changes
+➢ prevent_destroy → stop a resource from being accidentally deleted<br>
+➢ create_before_destroy → create a new one first, then delete the old one<br>
+➢ ignore_changes → ignore specific attribute changes<br>
 
 ```
 lifecycle {
@@ -89,30 +89,30 @@ lifecycle {
 
 Terraform Backend is the place where the Terraform state file is stored and managed (local, S3, etc.).
 
-i.  local backend
+i.  local backend<br>
     Local backend stores the Terraform state file on your local machine (your laptop or system).
     
-ii. Remote backend 
+ii. Remote backend <br>
     Remote backend stores the Terraform state file on remote storage like S3, Terraform Cloud, or any shared location for team use.
 <br>
 <br>
 
-● Using source-code tools like GitHub can create issues such as ,
-  -- file corruption
-  -- lack of collaboration
-  -- data loss
+● Using source-code tools like GitHub can create issues such as ,<br>
+  -- file corruption<br>
+  -- lack of collaboration<br>
+  -- data loss<br>
   -- inconsistency.
 
-● To solve these problems, Terraform provides a feature called `Terraform Backend`.
-● Backends offer a feature called `state locking`, this functionality avalible on `local backend`.
-● Because of this, we should never store Terraform state files in source-code managnment such as GitHub or GitLab.
-● Instead, we store `state files` on platforms that support `remote backends`.
-● `Remote backends` are platforms that can store and manage Terraform state files remotely.
-● Examples of remote backends include Amazon S3, Terraform Cloud, and HashiCorp Consul.
+● To solve these problems, Terraform provides a feature called `Terraform Backend`.<br>
+● Backends offer a feature called `state locking`, this functionality avalible on `local backend`.<br>
+● Because of this, we should never store Terraform state files in source-code managnment such as GitHub or GitLab.<br>
+● Instead, we store `state files` on platforms that support `remote backends`.<br>
+● `Remote backends` are platforms that can store and manage Terraform state files remotely.<br>
+● Examples of remote backends include Amazon S3, Terraform Cloud, and HashiCorp Consul.<br>
 
 >Now we will look at an example using the S3 platform, and we will also see how conflicts occur in both the `local backend` and the `remote backend`.
 
-ex.   So how does `state locking` work in the `local backend` ..!<br>
+Ex.   So how does `state locking` work in the `local backend` ..!<br>
       I can share some screenshots—when you run terraform apply at the same time, it will give an error.
 
       
@@ -123,7 +123,7 @@ ex.   So how does `state locking` work in the `local backend` ..!<br>
 <br>
 <br>
 
-ex.  Now we will look at an example of a `remote backend` using S3.
+Ex.  Now we will look at an example of a `remote backend` using S3.
 
    1. Create a S3 bucket [click here](https://github.com/nikiimisal/S3-CLI-IAm)
    2. For that, we need to add a backend block in our Terraform code.
@@ -149,6 +149,7 @@ Short & Simple Definition:<br>
 
   
 <h2>Some command's</h2>
+
 >Terraform state commands
 
 The points we covered earlier were related to the `state file`, so you can use those state-related commands in this example. Or I can demonstrate here how these commands work.
@@ -164,8 +165,8 @@ terraform state pull
 
 <h4>Terraform State List</h4>
 
-It’s hard to check how many resources were created after running `Terraform state pull` command, so we use `terraform state list` to easily see all resources.
-This command shows all the resources that are currently stored in the Terraform state file.
+➜ It’s hard to check how many resources were created after running `Terraform state pull` command, so we use `terraform state list` to easily see all resources.<br>
+➜ This command shows all the resources that are currently stored in the Terraform state file.
 
 ```
 terraform state list
@@ -174,8 +175,8 @@ terraform state list
 
 <h4>Terraform State Show</h4>
 
-If I want detailed information about a particular resource, I can use the `terraform state show` command.
-The `terraform state show` command is used to display detailed information about a specific resource stored in the Terraform state file.
+➜ If I want detailed information about a particular resource, I can use the `terraform state show` command.<br>
+➜ The `terraform state show` command is used to display detailed information about a specific resource stored in the Terraform state file.
 
 ```
 terraform state show <resource_address(Name)>
@@ -188,11 +189,11 @@ terraform state show <resource_address(Name)>
 
 The `terraform state` mv command is used to move or rename a resource inside the Terraform state file without recreating it.
 
-Renames resources without recreating them
-Prevents downtime
-Keeps the state file clean and organized
-Helps fix wrong resource names or paths
-Useful during refactoring of Terraform code
+➜ Renames resources without recreating them<br>
+➜ Prevents downtime<br>
+➜ Keeps the state file clean and organized<br>
+➜ Helps fix wrong resource names or paths<br>
+➜ Useful during refactoring of Terraform code
 
 ```
 terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resource-instance-name>
@@ -201,9 +202,9 @@ terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resour
 
 <h4>Terraform State RM</h4>
 
-`terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure.
-Just like we use `terraform import` to bring an external resource (e.g., an EC2 instance) into Terraform, 
-we can use `terraform state rm` to remove a resource from Terraform’s state without deleting it from AWS.
+➜ `terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure.<br>
+➜ Just like we use `terraform import` to bring an external resource (e.g., an EC2 instance) into Terraform, <br>
+➜ we can use `terraform state rm` to remove a resource from Terraform’s state without deleting it from AWS.
 
 >if you want to manage the resource manually (also you need to remove block in `main.tf` file manually).
 
