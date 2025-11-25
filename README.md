@@ -118,7 +118,7 @@ Ex.   So how does `state locking` work in the `local backend` ..!<br>
       
 | **VS Code**    | **Terminal**          |
 |--------------------------------|------------------------------------|
-| ![VS]() | ![AWS]() |
+| ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20092333.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20092036.png?raw=true) |
 
 <br>
 <br>
@@ -136,6 +136,9 @@ Ex.  Now we will look at an example of a `remote backend` using S3.
    5. Here’s the catch: you don’t need to manually keep a backup of the state file because the S3 bucket supports versioning.
    6. Just go to the S3 bucket page → click your bucket name → Properties → enable Versioning.
 
+| **Bucket**    | **Terminal init**          | **Bucket Object**          | **Stored code in object**          |
+|--------------------------------|------------------------------------|------------------------------------|------------------------------------|
+| ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20093344.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20094415.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155703.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20094630.png?raw=true) |
 
       
 <h2>Backend block</h2>
@@ -147,7 +150,10 @@ Short & Simple Definition:<br>
 
   Above, we discussed how the backend block is used. Here, I’m only explaining what a backend block is.
 
-  
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20154814.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
 <h2>Some command's</h2>
 
 >Terraform state commands
@@ -162,6 +168,9 @@ The `terraform state` command is used to view, inspect, modify, or manage the Te
 terraform state pull
 ```
 
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155055.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 <h4>Terraform State List</h4>
 
@@ -171,7 +180,9 @@ terraform state pull
 ```
 terraform state list
 ```
-
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155155.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 <h4>Terraform State Show</h4>
 
@@ -183,7 +194,9 @@ terraform state show <resource_address(Name)>
 ```
 
 
-
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155332.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 <h4>Terraform State MV</h4>
 
@@ -198,7 +211,9 @@ The `terraform state` mv command is used to move or rename a resource inside the
 ```
 terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resource-instance-name>
 ```
-
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155632.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 <h4>Terraform State RM</h4>
 
@@ -212,10 +227,12 @@ terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resour
 terraform state rm <aws_instance.terraform-logical-name-of-ec2>
 ```
 
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155856.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 
-
-
+_ _ _
 
 
 
