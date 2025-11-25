@@ -59,3 +59,70 @@ I’m using `hardcoding` here only for demonstration; prefer `dynamic assignment
 |--------------------------------|------------------------------------|
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot%202025-11-23%20192331.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot_20251123-190336.png?raw=true) |
 
+_ _ _
+
+<h1>Statefile</h1>
+
+>A Terraform state file is a file that stores the current status of all infrastructure created or managed by Terraform.
+
+Terraform Backend is the place where the Terraform state file is stored and managed (local, S3, etc.).
+
+i.  local backend
+    Local backend stores the Terraform state file on your local machine (your laptop or system).
+    
+ii. Remote backend 
+    Remote backend stores the Terraform state file on remote storage like S3, Terraform Cloud, or any shared location for team use.
+<br>
+<br>
+
+● Using source-code tools like GitHub can create issues such as ,
+  -- file corruption
+  -- lack of collaboration
+  -- data loss
+  -- inconsistency.
+
+● To solve these problems, Terraform provides a feature called `Terraform Backend`.
+● Backends offer a feature called `state locking`, this functionality avalible on `local backend`.
+● Because of this, we should never store Terraform state files in source-code managnment such as GitHub or GitLab.
+● Instead, we store `state files` on platforms that support `remote backends`.
+● `Remote backends` are platforms that can store and manage Terraform state files remotely.
+● Examples of remote backends include Amazon S3, Terraform Cloud, and HashiCorp Consul.
+
+>Now we will look at an example using the S3 platform, and we will also see how conflicts occur in both the `local backend` and the `remote backend`.
+
+ex.   So how does `state locking` work in the `local backend` ..!<br>
+      I can share some screenshots—when you run terraform apply at the same time, it will give an error.
+
+      
+| **VS Code**    | **Terminal**          |
+|--------------------------------|------------------------------------|
+| ![VS]() | ![AWS]() |
+
+<br>
+<br>
+
+ex.  Now we will look at an example of a `remote backend` using S3.
+
+   1. Create a S3 bucket [click here](https://github.com/nikiimisal/S3-CLI-IAm)
+   2. For that, we need to add a backend block in our Terraform code.
+   3. Now we need to run `terraform init` because S3 is a new service. Earlier, when we ran Terraform init, it only read the instance configuration. So now we must run the Terraform command again and then              run command `terraform apply`.
+   4. Now you can delete the state file from your local machine. This is just removal, not a destroy operation.
+      ```
+      rm -rf terraform.tfstate  
+       rm -rf terraform.tfstate.backup
+      ```
+   5. Here’s the catch: you don’t need to manually keep a backup of the state file because the S3 bucket supports versioning.
+   6. Just go to the S3 bucket page → click your bucket name → Properties → enable Versioning.
+
+
+      
+<h2>Backend block</h2>
+
+  >A backend block in Terraform is a special configuration block that tells Terraform where to store and manage the state file.
+
+Short & Simple Definition:<br>
+  --> The backend block is used to configure where Terraform should store the state file — locally or in a remote service like S3. 
+
+  Above, we discussed how the backend block is used. Here, I’m only explaining what a backend block is.
+
+  
