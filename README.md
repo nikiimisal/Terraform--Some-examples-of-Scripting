@@ -336,6 +336,9 @@ Use a provisioner when:
 | remote-exec          | On the remote resource (e.g., a newly created EC2 instance) | Running commands or scripts on the resource itself, like installing packages (Nginx, Apache) via SSH or WinRM.                 |
 | file                 | From the local machine to the remote resource               | Copying files or directories (e.g., configuration files, certificates, or application binaries) to the newly created resource. |
 
+---
+
+## Here are some example's
 
 
 
