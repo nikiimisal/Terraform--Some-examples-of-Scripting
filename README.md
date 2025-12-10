@@ -340,6 +340,10 @@ Use a provisioner when:
 
 ## Here are some example's
 
+ex.  This block runs a command on your local machine and saves the EC2 instance public IP into a file.(Using Privisioner)
+
+
+
 
 
 
