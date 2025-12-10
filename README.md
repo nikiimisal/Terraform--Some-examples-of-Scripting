@@ -233,6 +233,64 @@ terraform state rm <aws_instance.terraform-logical-name-of-ec2>
 
 
 _ _ _
+<h1>Terraform Provisioner</h1>
+
+In Terraform, a provisioner is a component that executes scripts or commands on a local or remote machine during the creation or destruction of a resource. Provisioners are used when something cannot be handled by Terraform’s declarative model — such as installing software, bootstrapping a new server, copying files, or performing cleanup tasks before destroying a resource.
+
+Simple Explanation:
+Think of Terraform as a tool that builds the house (the infrastructure).<br>
+A provisioner is like the set of instructions you give to arrange the furniture inside the house or clean the house after the work is done.
+
+Declarative vs Imperative:
+Terraform is mainly declarative — you describe what you want. Provisioners introduce imperative steps — you specify step-by-step instructions to configure something.
+
+>Last Resort Tool:<br>
+HashiCorp recommends using provisioners only as a last resort. Preferred alternatives are user_data (cloud-init) or custom machine images with tools like Packer, because they provide better reliability and idempotency.
+
+Important Point :
+user_data or cloud-init scripting works only on cloud platforms like AWS, Azure, or GCP because these clouds support metadata services.
+But Terraform provisioners can run anywhere:
+• On your local machine
+• On AWS
+• On Azure
+• On GCP
+• On on-prem servers
+• On any VM that supports SSH or WinRM
+This gives provisioners more flexibility, especially in environments where cloud-init is not available.
+
+Why Should We Use Provisioners:
+• When cloud-init/user_data cannot do the job
+• When you need to configure something after the server is created
+• When you want to copy files inside a machine
+• When you need to run one-time setup commands
+• When you want to trigger local scripts like Ansible, Bash, or Python after terraform apply
+• When working in environments where metadata/user_data is not supported
+
+Advantages of Terraform Provisioners:
+• Very easy to write and understand.
+• Works in all environments (local, AWS, Azure, GCP, on-prem).
+• Good for quick setup tasks like installing packages or running small scripts.
+• Helpful when cloud-init or user_data is not supported.
+• Can trigger external tools like Ansible, Python, Bash, etc.
+• Useful for copying files or doing one-time configuration steps.
+
+Disadvantages of Terraform Provisioners:
+• Not very reliable — SSH/WinRM failure can break terraform apply.
+• Breaks Terraform’s declarative nature by adding imperative logic.
+• Not idempotent — commands may run again and cause issues on repeated apply.
+• Hard to debug — script errors inside the machine fail the whole plan.
+• Officially discouraged by HashiCorp.
+• Makes Terraform configuration more complex and harder to maintain.
+
+
+<h3>Main Types of Provisioners</h3>
+<h5>There are three primary types of built-in provisioners: </h5>
+
+| **Provisioner Type** | **Execution Location**                                      | **Primary Use Case**                                                                                                           |
+| -------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| local-exec           | On the machine running terraform apply                      | Running local scripts, triggering external tools like Ansible, or saving outputs to a local file.                              |
+| remote-exec          | On the remote resource (e.g., a newly created EC2 instance) | Running commands or scripts on the resource itself, like installing packages (Nginx, Apache) via SSH or WinRM.                 |
+| file                 | From the local machine to the remote resource               | Copying files or directories (e.g., configuration files, certificates, or application binaries) to the newly created resource. |
 
 
 
