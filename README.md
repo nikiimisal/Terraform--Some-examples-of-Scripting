@@ -245,6 +245,8 @@ They are used when something **cannot be achieved through Terraform’s declarat
 - Copying files  
 - Running cleanup tasks before destroying a resource  
 
+>provisonal is not block its a argument
+
 ---
 
 ## 🏠 Simple Explanation
