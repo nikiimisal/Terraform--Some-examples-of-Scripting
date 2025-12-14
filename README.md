@@ -374,3 +374,45 @@ _ _ _
 
 <h1>Terraform Taint</h1>
 
+`terraform taint` is a Terraform command used to mark a resource for recreation.<br>
+When a resource is tainted, Terraform will destroy and recreate it during the next `terraform apply`, even if no configuration changes were made.<br>
+This is helpful when a resource is in an unexpected or unhealthy state and needs to be rebuilt cleanly.<br>
+<br>
+<h4>Simple meaning</h4>
+<br>
+👉 It tells Terraform:<br>
+“This resource is broken — recreate it.”<br>
+
+
+<h4>Why it’s used</h4>
+     
+  - Resource is misconfigured or corrupted
+  - Manual changes were done outside Terraform
+  - Provisioner failed but Terraform thinks resource is OK
+  - You want a fresh instance without changing code
+
+````
+terraform taint aws_instance.my_ec2           #old command
+terraform apply
+```
+
+```
+terraform apply -replace="aws_instance.my_ec2"      # new update command
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
