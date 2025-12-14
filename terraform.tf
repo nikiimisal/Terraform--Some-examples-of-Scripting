@@ -224,11 +224,70 @@ resource "aws_instance" "my-web" {
 
 
 
+ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
+
+   This example demonstrates how to create an Amazon Linux EC2 instance using Terraform and configure Nginx via the remote-exec provisioner.
+
+
+# provisioner --> Remote
+
+resource "aws_instance" "mymj" {
+  ami           = "ami-0b46816ffa1234887"
+  instance_type = "t3.micro"
+  key_name      = "server1"
+
+  vpc_security_group_ids = ["sg-0f4433def6da9da90"]
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y nginx",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
+    ]
+
+    connection {
+      type        = "ssh"
+      host        = self.public_ip
+      user        = "ec2-user"
+      private_key = file("C:/Users/nik0m/Downloads/server1.pem")
+    }
+  }
+
+  tags = {
+    Name = "webserver1"
+  }
+}
 
 
 
 
 
+ex.  erraform EC2 File Provisioner Example (Amazon Linux)
+
+This example demonstrates how to copy a local file to an Amazon Linux EC2 instance using Terraform’s file provisioner.
+
+
+# provisioner --> file
+resource "aws_instance" "mymj" {
+  ami           = "ami-0b46816ffa1234887"
+  instance_type = "t3.micro"
+  key_name      = "server1"
+
+vpc_security_group_ids = ["sg-0f4433def6da9da90"]
+
+  provisioner "file" {
+    source      = "public_ip.txt"
+    destination = "/tmp/public_ip.txt"
+  }
+
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ec2-user"
+    private_key = file("C:/Users/nik0m/Downloads/server1.pem")
+  }
+}
 
 
 
