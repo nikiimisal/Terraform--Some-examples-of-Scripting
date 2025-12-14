@@ -342,11 +342,35 @@ Use a provisioner when:
 
 ## Here are some example's
 
-ex.  This block runs a command on your local machine and saves the EC2 instance public IP into a file.(Using Privisioner)
+ex.  This block runs a command on your local machine and saves the EC2 instance public IP into a file.(Using Privisioner `Local-exect` command)
 
 
 
+<p align="center">
+  <img src="" width="500" alt="Initialize Repository Screenshot">
+</p>
 
+_ _ _
 
+ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
 
+   >This example demonstrates how to create an Amazon Linux EC2 instance using Terraform and configure Nginx via the remote-exec provisioner.
+
+<p align="center">
+  <img src="" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+_ _ _
+
+ex.  erraform EC2 File Provisioner Example (Amazon Linux)
+
+>This example demonstrates how to copy a local file to an Amazon Linux EC2 instance using Terraform’s file provisioner.
+
+<p align="center">
+  <img src="" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+_ _ _
+
+<h1>Terraform Taint</h1>
 
