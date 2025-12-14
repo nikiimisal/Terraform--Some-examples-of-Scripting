@@ -391,15 +391,16 @@ This is helpful when a resource is in an unexpected or unhealthy state and needs
   - Provisioner failed but Terraform thinks resource is OK
   - You want a fresh instance without changing code
 
-````
+```
 terraform taint aws_instance.my_ec2           #old command
 terraform apply
 ```
+<br>
 
 ```
 terraform apply -replace="aws_instance.my_ec2"      # new update command
 ```
-
+<br>
 
 
 
