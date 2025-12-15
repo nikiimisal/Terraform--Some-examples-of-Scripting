@@ -231,6 +231,98 @@ terraform state rm <aws_instance.terraform-logical-name-of-ec2>
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155856.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
+_ _ _
+
+<h1>Terraform Taint</h1>
+
+`terraform taint` is a Terraform command used to mark a resource for recreation.<br>
+When a resource is tainted, Terraform will destroy and recreate it during the next `terraform apply`, even if no configuration changes were made.<br>
+This is helpful when a resource is in an unexpected or unhealthy state and needs to be rebuilt cleanly.<br>
+<br>
+<h4>Simple meaning</h4>
+<br>
+👉 It tells Terraform:<br>
+“This resource is broken — recreate it.”<br>
+
+
+<h4>Why it’s used</h4>
+     
+  - Resource is misconfigured or corrupted
+  - Manual changes were done outside Terraform
+  - Provisioner failed but Terraform thinks resource is OK
+  - You want a fresh instance without changing code
+
+```
+terraform taint aws_instance.my_ec2           #old command
+terraform apply
+```
+<br>
+
+```
+terraform apply -replace="aws_instance.my_ec2"      # new update command
+```
+<br>
+
+<h4>here is example</h4>
+
+
+| **VS-Code**    | **Before-AWS-Consol**          | **After-AWS-Consol**          |
+|--------------------------------|------------------------------------|------------------------------------|
+| ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154735.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154836.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20155541.png?raw=true) |
+
+
+
+
+<h1>Terraform Modules</h1>
+
+A Terraform module is a reusable block of Terraform code that groups related resources together.
+
+- A module is a container for multiple resources that are used together.
+- Think of a module like a template. Write the code once, reuse it many times.
+
+
+<h3>Why Use Modules?</h3>
+
+- ♻️ Reuse code (no copy-paste)
+- 🧹 Clean & organized Terraform files
+- 📈 Scalable infrastructure
+- 👥 Team-friendly (standard structure)
+
+
+<h4>Types of Terraform Modules</h4>
+
+1. Root Module
+
+  - The main folder where you run `terraform init/plan/apply`
+
+2. Child Module
+
+  - A module called by another module (reusable code)
+
+
+
+<h3>Basic Module Structure</h3>
+
+```
+terraform-project/
+│
+├── main.tf        # Root module
+├── variables.tf
+├── outputs.tf
+│
+└── modules/
+    └── ec2/
+        ├── main.tf
+        ├── variables.tf
+        └── outputs.tf
+```
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-15%20085204.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+_ _ _
 
 _ _ _
 <h1>Terraform Provisioner</h1>
