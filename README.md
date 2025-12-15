@@ -347,7 +347,7 @@ ex.  This block runs a command on your local machine and saves the EC2 instance 
 
 
 <p align="center">
-  <img src="" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-10%20102235.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
 _ _ _
@@ -357,7 +357,7 @@ ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
    >This example demonstrates how to create an Amazon Linux EC2 instance using Terraform and configure Nginx via the remote-exec provisioner.
 
 <p align="center">
-  <img src="" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20132324.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
 _ _ _
@@ -367,7 +367,7 @@ ex.  erraform EC2 File Provisioner Example (Amazon Linux)
 >This example demonstrates how to copy a local file to an Amazon Linux EC2 instance using Terraform’s file provisioner.
 
 <p align="center">
-  <img src="" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20142018.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
 _ _ _
@@ -401,6 +401,76 @@ terraform apply
 terraform apply -replace="aws_instance.my_ec2"      # new update command
 ```
 <br>
+
+<h4>here is example</h4>
+
+
+| **VS-Code**    | **Before-AWS-Consol**          | **After-AWS-Consol**          |
+|--------------------------------|------------------------------------|------------------------------------|
+| ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154735.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154836.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20155541.png?raw=true) |
+
+
+
+
+<h1>Terraform Modules</h1>
+
+A Terraform module is a reusable block of Terraform code that groups related resources together.
+
+- A module is a container for multiple resources that are used together.
+- Think of a module like a template. Write the code once, reuse it many times.
+
+
+<h3>Why Use Modules?</h3>
+
+- ♻️ Reuse code (no copy-paste)
+- 🧹 Clean & organized Terraform files
+- 📈 Scalable infrastructure
+- 👥 Team-friendly (standard structure)
+
+
+<h4>Types of Terraform Modules</h4>
+
+1. Root Module
+
+  - The main folder where you run `terraform init/plan/apply`
+
+2. Child Module
+
+  - A module called by another module (reusable code)
+
+
+
+<h3>Basic Module Structure</h3>
+
+```
+terraform-project/
+│
+├── main.tf        # Root module
+├── variables.tf
+├── outputs.tf
+│
+└── modules/
+    └── ec2/
+        ├── main.tf
+        ├── variables.tf
+        └── outputs.tf
+```
+
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-15%20085204.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+_ _ _
+
+
+
+
+
+
+
+
+
 
 
 
