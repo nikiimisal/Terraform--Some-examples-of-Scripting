@@ -1,5 +1,36 @@
 >Quick flow 
 
+- [User Data Script](#example-1)
+- [Output Block](#example-2)
+- [Data Block](#example-3)
+- [Terraform Import](#example-4)
+- [Life Cycle rule (Block)](#example-5)
+- [Statefile](#example-6) 
+     - [Ex. So how does state locking work in the local backend ..!](#example-7)
+     - [Ex. Now we will look at an example of a remote backend using S3.](#example-8)
+
+       <br>
+       
+- [Backend block](#example-9)
+- [Some command's](#example-10)
+
+- Terraform State Command's
+  
+     - [Terraform State Pull](#example-11)
+     - [Terraform State List](#example-12)
+     - [Terraform State Show](#example-13)
+     - Terraform State MV](#example-14)
+     - [Terraform State RM](#example-15)
+- [Terraform Taint](#example-16)
+- [Terraform Modules](#example-17)
+- [Terraform Provisioner](#example-18)
+    - [Saving EC2 Public IP Using local-exec](#example-19)
+    - [Terraform EC2 Instance Provisioning Using Remote-Exec (Amazon Linux)](#example-20)
+    - [ex. erraform EC2 File Provisioner Example (Amazon Linux)](#example-21)
+
+  
+<a id="example-1"></a>
+
 <h2>User Data Script</h2>
 
 ● Earlier, we used a user-data script in AWS. Let’s focus on that again for a moment—just a reminder of the process.<br>
@@ -21,6 +52,7 @@
 </p>
 
 
+<a id="example-2"></a>
 
 <h2>Output Block</h2>
 ● What does the output block do?<br>
@@ -32,6 +64,7 @@
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot%202025-11-23%20172907.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot%202025-11-23%20180323.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot%202025-11-23%201731261.png?raw=true) |
 
 
+<a id="example-3"></a>
 
 <h2>Data Block</h2>
 
@@ -48,6 +81,7 @@ Why we need to use Data Block ?<br>
 
 
 
+<a id="example-4"></a>
 
 <h2>Terraform Import</h2>
 
@@ -60,6 +94,8 @@ I’m using `hardcoding` here only for demonstration; prefer `dynamic assignment
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot%202025-11-23%20192331.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/Screenshot_20251123-190336.png?raw=true) |
 
 _ _ _
+
+<a id="example-5"></a>
 
 <h2>Life Cycle rule (Block) </h2>
 
@@ -82,6 +118,7 @@ lifecycle {
 }
 ```
 
+<a id="example-6"></a>
 
 <h1>Statefile</h1>
 
@@ -112,6 +149,8 @@ ii. Remote backend <br>
 
 >Now we will look at an example using the S3 platform, and we will also see how conflicts occur in both the `local backend` and the `remote backend`.
 
+<a id="example-7"></a>
+
 Ex.   So how does `state locking` work in the `local backend` ..!<br>
       I can share some screenshots—when you run terraform apply at the same time, it will give an error.
 
@@ -122,6 +161,8 @@ Ex.   So how does `state locking` work in the `local backend` ..!<br>
 
 <br>
 <br>
+
+<a id="example-8"></a>
 
 Ex.  Now we will look at an example of a `remote backend` using S3.
 
@@ -140,7 +181,8 @@ Ex.  Now we will look at an example of a `remote backend` using S3.
 |--------------------------------|------------------------------------|------------------------------------|------------------------------------|
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20093344.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20094415.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155703.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20094630.png?raw=true) |
 
-      
+ <a id="example-9"></a>
+     
 <h2>Backend block</h2>
 
   >A backend block in Terraform is a special configuration block that tells Terraform where to store and manage the state file.
@@ -154,11 +196,15 @@ Short & Simple Definition:<br>
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20154814.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
+<a id="example-10"></a>
+
 <h2>Some command's</h2>
 
 >Terraform state commands
 
 The points we covered earlier were related to the `state file`, so you can use those state-related commands in this example. Or I can demonstrate here how these commands work.
+
+<a id="example-11"></a>
 
 <h4>Terraform State Pull</h4>
 
@@ -172,6 +218,8 @@ terraform state pull
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155055.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
+<a id="example-12"></a>
+
 <h4>Terraform State List</h4>
 
 ➜ It’s hard to check how many resources were created after running `Terraform state pull` command, so we use `terraform state list` to easily see all resources.<br>
@@ -183,6 +231,8 @@ terraform state list
    <p align="center">
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155155.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
+
+<a id="example-12"></a>
 
 <h4>Terraform State Show</h4>
 
@@ -197,6 +247,8 @@ terraform state show <resource_address(Name)>
    <p align="center">
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155332.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
+
+<a id="example-13"></a>
 
 <h4>Terraform State MV</h4>
 
@@ -215,6 +267,8 @@ terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resour
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155632.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
+<a id="example-14"></a>
+
 <h4>Terraform State RM</h4>
 
 ➜ `terraform state rm` is used to remove a resource from the Terraform state file without deleting it from the real infrastructure.<br>
@@ -232,6 +286,8 @@ terraform state rm <aws_instance.terraform-logical-name-of-ec2>
 </p>
 
 _ _ _
+
+<a id="example-15"></a>
 
 <h1>Terraform Taint</h1>
 
@@ -271,7 +327,7 @@ terraform apply -replace="aws_instance.my_ec2"      # new update command
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154735.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154836.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20155541.png?raw=true) |
 
 
-
+<a id="example-16"></a>
 
 <h1>Terraform Modules</h1>
 
@@ -325,6 +381,9 @@ terraform-project/
 _ _ _
 
 _ _ _
+
+<a id="example-17"></a>
+
 <h1>Terraform Provisioner</h1>
 
 ## 🔧 What is a Provisioner in Terraform?
@@ -434,6 +493,9 @@ Use a provisioner when:
 
 ## Here are some example's
 
+
+<a id="example-17"></a>
+
 ex.  This block runs a command on your local machine and saves the EC2 instance public IP into a file.(Using Privisioner `Local-exect` command)
 
 
@@ -444,6 +506,8 @@ ex.  This block runs a command on your local machine and saves the EC2 instance 
 
 _ _ _
 
+<a id="example-17"></a>
+
 ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
 
    >This example demonstrates how to create an Amazon Linux EC2 instance using Terraform and configure Nginx via the remote-exec provisioner.
@@ -453,6 +517,8 @@ ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
 </p>
 
 _ _ _
+
+<a id="example-18"></a>
 
 ex.  erraform EC2 File Provisioner Example (Amazon Linux)
 
