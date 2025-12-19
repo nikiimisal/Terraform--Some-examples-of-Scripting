@@ -521,7 +521,7 @@ _ _ _
 
 <a id="example-21"></a>
 
-ex.  erraform EC2 File Provisioner Example (Amazon Linux)
+ex.  Terraform EC2 File Provisioner Example (Amazon Linux)
 
 >This example demonstrates how to copy a local file to an Amazon Linux EC2 instance using Terraform’s file provisioner.
 
