@@ -232,7 +232,8 @@ terraform state list
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155155.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
-<a id="example-12"></a>
+
+<a id="example-13"></a>
 
 <h4>Terraform State Show</h4>
 
@@ -248,7 +249,7 @@ terraform state show <resource_address(Name)>
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155332.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
-<a id="example-13"></a>
+<a id="example-14"></a>
 
 <h4>Terraform State MV</h4>
 
@@ -267,7 +268,7 @@ terraform state mv <aws_instance.logical-instance-name> <aws_instance.new-resour
   <img src="https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/s/Screenshot%202025-11-25%20155632.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
 
-<a id="example-14"></a>
+<a id="example-15"></a>
 
 <h4>Terraform State RM</h4>
 
@@ -287,7 +288,7 @@ terraform state rm <aws_instance.terraform-logical-name-of-ec2>
 
 _ _ _
 
-<a id="example-15"></a>
+<a id="example-16"></a>
 
 <h1>Terraform Taint</h1>
 
@@ -327,7 +328,7 @@ terraform apply -replace="aws_instance.my_ec2"      # new update command
 | ![VS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154735.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20154836.png?raw=true) | ![AWS](https://github.com/nikiimisal/Terraform--Some-examples-of-Scripting/blob/main/img/tt/Screenshot%202025-12-14%20155541.png?raw=true) |
 
 
-<a id="example-16"></a>
+<a id="example-17"></a>
 
 <h1>Terraform Modules</h1>
 
@@ -382,7 +383,7 @@ _ _ _
 
 _ _ _
 
-<a id="example-17"></a>
+<a id="example-18"></a>
 
 <h1>Terraform Provisioner</h1>
 
@@ -494,7 +495,7 @@ Use a provisioner when:
 ## Here are some example's
 
 
-<a id="example-17"></a>
+<a id="example-19"></a>
 
 ex.  This block runs a command on your local machine and saves the EC2 instance public IP into a file.(Using Privisioner `Local-exect` command)
 
@@ -506,7 +507,7 @@ ex.  This block runs a command on your local machine and saves the EC2 instance 
 
 _ _ _
 
-<a id="example-17"></a>
+<a id="example-20"></a>
 
 ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
 
@@ -518,7 +519,7 @@ ex .  Terraform EC2 Instance Provisioning Using `Remote-Exec` (Amazon Linux)
 
 _ _ _
 
-<a id="example-18"></a>
+<a id="example-21"></a>
 
 ex.  erraform EC2 File Provisioner Example (Amazon Linux)
 
