@@ -19,14 +19,14 @@
      - [Terraform State Pull](#example-11)
      - [Terraform State List](#example-12)
      - [Terraform State Show](#example-13)
-     - Terraform State MV](#example-14)
+     - [Terraform State MV](#example-14)
      - [Terraform State RM](#example-15)
 - [Terraform Taint](#example-16)
 - [Terraform Modules](#example-17)
 - [Terraform Provisioner](#example-18)
-    - [Saving EC2 Public IP Using local-exec](#example-19)
-    - [Terraform EC2 Instance Provisioning Using Remote-Exec (Amazon Linux)](#example-20)
-    - [ex. erraform EC2 File Provisioner Example (Amazon Linux)](#example-21)
+    - [Ex. Saving EC2 Public IP Using local-exec](#example-19)
+    - [Ex. Terraform EC2 Instance Provisioning Using Remote-Exec (Amazon Linux)](#example-20)
+    - [Ex. erraform EC2 File Provisioner Example (Amazon Linux)](#example-21)
 
   
 <a id="example-1"></a>
